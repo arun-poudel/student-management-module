@@ -28,7 +28,7 @@ table 50801 "Student"
             DataClassification = CustomerContent;
         }
 
-        field(5; "EnrollmentDate"; Date)
+        field(5; "Enrollment Date"; Date)
         {
             Caption = 'Enrollment Date';
             DataClassification = CustomerContent;
