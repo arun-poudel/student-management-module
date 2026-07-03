@@ -115,4 +115,4 @@ These are worth keeping in mind for future BC modules:
 
 ---
 
-**Author:** Arun Poudel (Nest) — Agile Solutions Pvt. Ltd.
+**Author:** Arun Poudel  — Agile Solutions Pvt. Ltd.
