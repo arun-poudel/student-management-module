@@ -20,12 +20,9 @@
 # Operating System files
 .DS_Store
 Thumbs.db
-
-!README.md
-!app.json
+*.txt
 
 
 
 
 .vscode
-*md
