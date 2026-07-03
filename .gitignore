@@ -23,6 +23,6 @@ Thumbs.db
 *.txt
 
 
-
+.app.json
 
 .vscode
