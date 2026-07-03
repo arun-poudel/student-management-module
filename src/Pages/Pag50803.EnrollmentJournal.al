@@ -44,4 +44,47 @@ page 50803 "Enrollment Journal"
             }
         }
     }
+
+    actions
+    {
+        area(Processing)
+        {
+            action(Post)
+            {
+                Caption = 'Post';
+                ApplicationArea = All;
+                Image = Post;
+                Promoted = true;
+                PromotedCategory = Process;
+                PromotedIsBig = True;
+
+
+                trigger OnAction()
+                var
+                    EnrollmentPost: Codeunit "Enrollment Post";
+
+                begin
+                    if not Confirm('Do you want to post all enrollment lines?') then
+                        exit;
+
+                    EnrollmentPost.Run(Rec)
+                end;
+            }
+            action("Show Posted Entries")
+            {
+                caption = 'Show Posted Entries';
+                applicationArea = All;
+                Image = History;
+                Promoted = true;
+                PromotedCategory = Process;
+                trigger OnAction()
+                var
+                    PostedEnrollmentEntry: Record "Posted Enrollment Entry";
+                begin
+                    PostedEnrollmentEntry.SetRange("Student No.", Rec."Student No.");
+                    Page.Run(Page::"Posted Enrollment Entries", PostedEnrollmentEntry);
+                end;
+            }
+        }
+    }
 }

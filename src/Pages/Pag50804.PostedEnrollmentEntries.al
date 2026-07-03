@@ -4,7 +4,7 @@ page 50804 "Posted Enrollment Entries"
     Caption = 'Posted Enrollment Entries';
     PageType = List;
     SourceTable = "Posted Enrollment Entry";
-
+    usageCategory = Lists;
     layout
     {
         area(Content)

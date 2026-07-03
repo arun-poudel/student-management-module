@@ -3,6 +3,7 @@ table 50804 "Posted Enrollment Entry"
     Caption = 'Posted Enrollment Entry';
     DataClassification = CustomerContent;
 
+
     fields
     {
         field(1; "Entry No."; Integer)
@@ -51,3 +52,6 @@ table 50804 "Posted Enrollment Entry"
         }
     }
 }
+
+
+
