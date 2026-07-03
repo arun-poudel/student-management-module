@@ -16,7 +16,7 @@ codeunit 50800 "Enrollment Post"
         EnrollmentJournalLine.SetFilter("Student No.", '<>%1', '');
 
         if not EnrollmentJournalLine.FindSet() then
-            Message('There is noting to post.');
+            Error('There is noting to post.');
 
         if PostedEnrollmentEntry.FindLast() then
             NextEntryNo := PostedEnrollmentEntry."Entry No." + 1

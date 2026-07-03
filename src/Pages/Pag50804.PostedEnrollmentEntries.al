@@ -5,6 +5,10 @@ page 50804 "Posted Enrollment Entries"
     PageType = List;
     SourceTable = "Posted Enrollment Entry";
     usageCategory = Lists;
+    Editable = false;
+    InsertAllowed = false;
+    ModifyAllowed = false;
+    DeleteAllowed = false;
     layout
     {
         area(Content)
