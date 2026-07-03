@@ -1,5 +1,32 @@
-*.md
-*.json
-.alpackages
-.snapshots
+```gitignore
+# AL packages (downloaded symbols)
+.alpackages/
+
+# AL snapshots
+.snapshots/
+
+# VS Code local settings
+.vscode/
+
+# Build output
+.output/
+
+# Temporary files
+*.app
+*.cache
+*.log
+*.tmp
+
+# Operating System files
+.DS_Store
+Thumbs.db
+
+# JetBrains IDEs
+.idea/
+
+# Visual Studio
+# .vs/
+```
+
 .vscode
+*md
