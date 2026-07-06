@@ -20,6 +20,15 @@ table 50801 "Student"
         {
             Caption = 'Email';
             DataClassification = EndUserIdentifiableInformation;
+
+            trigger OnValidate()
+            var
+                MailManagement: Codeunit "Mail Management";
+
+            begin
+                if "Email" <> '' then
+                    MailManagement.CheckValidEmailAddresses("Email");
+            end;
         }
 
         field(4; "Phone No."; Text[30])
@@ -44,7 +53,17 @@ table 50801 "Student"
             Caption = 'Blocked';
             DataClassification = CustomerContent;
         }
+        field(8; "No. Series"; Code[20])
+        {
+            Caption = 'No. Series';
+            TableRelation = "No. Series";
+            Editable = false;
+        }
     }
+
+
+
+
     keys
     {
         key(pk; "No.")
@@ -52,4 +71,20 @@ table 50801 "Student"
             Clustered = true;
         }
     }
+
+    var
+        StudentNumberSeriesTok: Label 'STUDENT', Locked = true;
+
+    trigger OnInsert()
+    var
+        NoSeries: Codeunit "No. Series";
+
+    begin
+        if "No." = '' then begin
+            "No. Series" := StudentNumberSeriesTok;
+            "No." := NoSeries.GetNextNo("No. Series");
+        end;
+    end;
+
+
 }

@@ -19,10 +19,13 @@ table 50803 "Enrollment Journal Line"
             var
                 Student: Record Student;
             begin
-                if Student.Get("Student No.") then begin
-                    Student.TestField(Blocked, false);
-                    "Student Name" := Student.Name;
+                if "Student No." = '' then begin
+                    Validate("Student Name", '');
+                    exit;
                 end;
+                Student.Get("Student No.");
+                Student.TestField(Blocked, false);
+                Validate("Student Name", Student.Name);
             end;
         }
         field(3; "Student Name"; Text[100])
@@ -39,10 +42,15 @@ table 50803 "Enrollment Journal Line"
             var
                 Course: Record Course;
             begin
-                if Course.Get("Course Code") then begin
-                    "Course Description" := Course.Description;
-                    "Fee Amount" := Course."Fee Amount";
+                if "Course Code" = '' then begin
+                    Validate("Course Description", '');
+                    Validate("Fee Amount", 0);
+                    exit;
                 end;
+
+                Course.Get("Course Code");
+                Validate("Course Description", Course.Description);
+                Validate("Fee Amount", Course."Fee Amount");
             end;
         }
         field(5; "Course Description"; Text[100])
@@ -70,7 +78,7 @@ table 50803 "Enrollment Journal Line"
     var
         EnrollmentJournal: Record "Enrollment Journal Line";
     begin
-        if EnrollmentJournal.FindLast() then 
+        if EnrollmentJournal.FindLast() then
             "Entry No." := EnrollmentJournal."Entry No." + 1
         else
             "Entry No." := 1;
