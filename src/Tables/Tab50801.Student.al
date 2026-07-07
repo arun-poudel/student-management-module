@@ -72,17 +72,18 @@ table 50801 "Student"
         }
     }
 
-    var
-        StudentNumberSeriesTok: Label 'STUDENT', Locked = true;
+
 
     trigger OnInsert()
     var
+        StudentMgtSetup: Record "Student Mgt. Setup";
         NoSeries: Codeunit "No. Series";
 
     begin
         if "No." = '' then begin
-            "No. Series" := StudentNumberSeriesTok;
-            "No." := NoSeries.GetNextNo("No. Series");
+            StudentMgtSetup.GetSetup();
+            StudentMgtSetup.TestField("Student Nos.");
+            "No." := NoSeries.GetNextNo(StudentMgtSetup."Student Nos.");
         end;
     end;
 

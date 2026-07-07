@@ -1,20 +1,18 @@
-page 50802 "Course List"
+page 50806 CourseCard
 {
     ApplicationArea = All;
-    Caption = 'Course List';
-    PageType = List;
+    Caption = 'CourseCard';
+    PageType = Card;
     SourceTable = Course;
-    UsageCategory = Lists;
-    cardpageid = "CourseCard";
-    DelayedInsert = true;
-
 
     layout
     {
         area(Content)
         {
-            repeater(General)
+            group(General)
             {
+                Caption = 'General';
+
                 field("Code"; Rec."Code")
                 {
                     ToolTip = 'Specifies the value of the Code field.', Comment = '%';

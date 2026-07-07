@@ -39,4 +39,17 @@ table 50802 "Course"
             Clustered = true;
         }
     }
+
+    trigger OnInsert()
+    var
+        StudentMgtSetup: Record "Student Mgt. Setup";
+        NoSeries: Codeunit "No. Series";
+    begin
+        if Code = '' then begin
+            StudentMgtSetup.GetSetup();
+            StudentMgtSetup.TestField(StudentMgtSetup."Course Nos.");
+            "Code" := NoSeries.GetNextNo(StudentMgtSetup."Course Nos.")
+
+        end;
+    end;
 }
