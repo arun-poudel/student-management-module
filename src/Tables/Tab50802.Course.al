@@ -45,7 +45,7 @@ table 50802 "Course"
         StudentMgtSetup: Record "Student Mgt. Setup";
         NoSeries: Codeunit "No. Series";
     begin
-        if Code = '' then begin
+        if "Code" = '' then begin
             StudentMgtSetup.GetSetup();
             StudentMgtSetup.TestField(StudentMgtSetup."Course Nos.");
             "Code" := NoSeries.GetNextNo(StudentMgtSetup."Course Nos.")

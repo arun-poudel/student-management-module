@@ -7,8 +7,9 @@ codeunit 50800 "Enrollment Post"
     var
         EnrollmentJournalLine: Record "Enrollment Journal Line";
         PostedEnrollmentEntry: Record "Posted Enrollment Entry";
-        NextEntryNo: Integer;
         LinesPosted: Integer;
+        StudentMgtSetup: Record "Student Mgt. Setup";
+        NoSeries: Codeunit "No. Series";
 
     begin
 
@@ -16,17 +17,14 @@ codeunit 50800 "Enrollment Post"
         EnrollmentJournalLine.SetFilter("Student No.", '<>%1', '');
 
         if not EnrollmentJournalLine.FindSet() then
-            Error('There is noting to post.');
+            Error('There is nothing to post.');
 
-        if PostedEnrollmentEntry.FindLast() then
-            NextEntryNo := PostedEnrollmentEntry."Entry No." + 1
-
-        else
-            NextEntryNo := 1;
+        StudentMgtSetup.GetSetup();
+        StudentMgtSetup.TestField("Posted Enrollment Nos.");
 
         repeat
             PostedEnrollmentEntry.Init();
-            PostedEnrollmentEntry."Entry No." := NextEntryNo;
+            PostedEnrollmentEntry."Entry No." := NoSeries.GetNextNo(StudentMgtSetup."Posted Enrollment Nos.");
             PostedEnrollmentEntry."Student No." := EnrollmentJournalLine."Student No.";
             PostedEnrollmentEntry."Student Name" := EnrollmentJournalLine."Student Name";
             PostedEnrollmentEntry."Course Code" := EnrollmentJournalLine."Course Code";
@@ -36,7 +34,6 @@ codeunit 50800 "Enrollment Post"
             PostedEnrollmentEntry."Posting Date" := WorkDate();
             PostedEnrollmentEntry."User ID" := UserId();
             PostedEnrollmentEntry.Insert();
-            NextEntryNo += 1;
             LinesPosted += 1;
 
         until EnrollmentJournalLine.Next() = 0;
