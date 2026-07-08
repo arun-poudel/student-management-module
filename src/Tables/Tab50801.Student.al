@@ -59,6 +59,22 @@ table 50801 "Student"
             TableRelation = "No. Series";
             Editable = false;
         }
+
+        field(9; "Total Courses Enrolled"; Integer)
+        {
+            Caption = 'Total Courses Enrolled';
+            FieldClass = FlowField;
+            CalcFormula = count("Posted Enrollment Entry" where("Student No." = field("No.")));
+            Editable = false;
+        }
+        field(10; "Total Fees Paid"; Decimal)
+        {
+            Caption = 'Total Fees Paid';
+            FieldClass = FlowField;
+            CalcFormula = sum("Posted Enrollment Entry"."Fee Amount" where("Student No." = field("No.")));
+            Editable = false;
+            AutoFormatType = 1;
+        }
     }
 
 
@@ -72,17 +88,18 @@ table 50801 "Student"
         }
     }
 
-    var
-        StudentNumberSeriesTok: Label 'STUDENT', Locked = true;
+
 
     trigger OnInsert()
     var
+        StudentMgtSetup: Record "Student Mgt. Setup";
         NoSeries: Codeunit "No. Series";
 
     begin
         if "No." = '' then begin
-            "No. Series" := StudentNumberSeriesTok;
-            "No." := NoSeries.GetNextNo("No. Series");
+            StudentMgtSetup.GetSetup();
+            StudentMgtSetup.TestField("Student Nos.");
+            "No." := NoSeries.GetNextNo(StudentMgtSetup."Student Nos.");
         end;
     end;
 

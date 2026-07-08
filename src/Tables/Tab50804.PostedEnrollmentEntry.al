@@ -6,9 +6,11 @@ table 50804 "Posted Enrollment Entry"
 
     fields
     {
-        field(1; "Entry No."; Integer)
+        field(1; "Entry No."; Code[20])
         {
             Caption = 'Entry No.';
+            DataClassification = CustomerContent;
+            Editable = false;
 
         }
         field(2; "Student No."; Code[20])
