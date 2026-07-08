@@ -59,6 +59,22 @@ table 50801 "Student"
             TableRelation = "No. Series";
             Editable = false;
         }
+
+        field(9; "Total Course Enrolled"; Integer)
+        {
+            Caption = 'Total Courses Enrolled';
+            FieldClass = FlowField;
+            CalcFormula = count("Posted Enrollment Entry" where("Student No." = field("No.")));
+            Editable = false;
+        }
+        field(10; "Total Fees Paid"; Integer)
+        {
+            Caption = 'Total Fees Paid';
+            FieldClass = FlowField;
+            CalcFormula = sum("Posted Enrollment Entry"."Fee Amount" where("Student No." = field("No.")));
+            Editable = false;
+            AutoFormatType = 1;
+        }
     }
 
 
