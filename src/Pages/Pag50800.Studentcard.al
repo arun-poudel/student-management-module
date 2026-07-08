@@ -41,6 +41,16 @@ page 50800 "Student card"
                 {
                     ToolTip = 'Specifies the value of the Status field.', Comment = '%';
                 }
+                field("Total Courses Enrolled"; Rec."Total Courses Enrolled")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies how many courses this student has enrolled in.';
+                }
+                field("Total Fees Paid"; Rec."Total Fees Paid")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the total fees paid by this student.';
+                }
 
             }
         }

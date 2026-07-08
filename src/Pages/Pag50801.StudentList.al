@@ -45,5 +45,13 @@ page 50801 "Student List"
 
             }
         }
+        area(FactBoxes)
+        {
+            part(StudentStatisticsFactBox; "Student Statistics FactBox")
+            {
+                ApplicationArea = All;
+                SubPageLink = "No." = field("No.");
+            }
+        }
     }
 }

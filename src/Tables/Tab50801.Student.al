@@ -60,14 +60,14 @@ table 50801 "Student"
             Editable = false;
         }
 
-        field(9; "Total Course Enrolled"; Integer)
+        field(9; "Total Courses Enrolled"; Integer)
         {
             Caption = 'Total Courses Enrolled';
             FieldClass = FlowField;
             CalcFormula = count("Posted Enrollment Entry" where("Student No." = field("No.")));
             Editable = false;
         }
-        field(10; "Total Fees Paid"; Integer)
+        field(10; "Total Fees Paid"; Decimal)
         {
             Caption = 'Total Fees Paid';
             FieldClass = FlowField;
