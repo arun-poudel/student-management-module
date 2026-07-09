@@ -11,6 +11,46 @@
       <rd:DataSourceID>24324c7a-406a-445a-8da3-72202ff2296d</rd:DataSourceID>
     </DataSource>
   </DataSources>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+      <Fields>
+        <Field Name="StudentNo">
+          <DataField>StudentNo</DataField>
+        </Field>
+        <Field Name="StudentName">
+          <DataField>StudentName</DataField>
+        </Field>
+        <Field Name="TotalFeesPaid">
+          <DataField>TotalFeesPaid</DataField>
+        </Field>
+        <Field Name="TotalFeesPaidFormat">
+          <DataField>TotalFeesPaidFormat</DataField>
+        </Field>
+        <Field Name="CourseCode">
+          <DataField>CourseCode</DataField>
+        </Field>
+        <Field Name="CourseDesc">
+          <DataField>CourseDesc</DataField>
+        </Field>
+        <Field Name="EnrollmentDate">
+          <DataField>EnrollmentDate</DataField>
+        </Field>
+        <Field Name="FeeAmount">
+          <DataField>FeeAmount</DataField>
+        </Field>
+        <Field Name="FeeAmountFormat">
+          <DataField>FeeAmountFormat</DataField>
+        </Field>
+        <Field Name="PostingDate">
+          <DataField>PostingDate</DataField>
+        </Field>
+      </Fields>
+    </DataSet>
+  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -412,12 +452,12 @@
                               <Style>None</Style>
                             </Border>
                             <TopBorder>
-                              <Color>MidnightBlue</Color>
+                              <Color>Black</Color>
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </TopBorder>
                             <BottomBorder>
-                              <Color>MidnightBlue</Color>
+                              <Color>Black</Color>
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </BottomBorder>
@@ -454,12 +494,12 @@
                               <Style>None</Style>
                             </Border>
                             <TopBorder>
-                              <Color>MidnightBlue</Color>
+                              <Color>Black</Color>
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </TopBorder>
                             <BottomBorder>
-                              <Color>MidnightBlue</Color>
+                              <Color>Black</Color>
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </BottomBorder>
@@ -500,12 +540,12 @@
                               <Style>None</Style>
                             </Border>
                             <TopBorder>
-                              <Color>MidnightBlue</Color>
+                              <Color>Black</Color>
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </TopBorder>
                             <BottomBorder>
-                              <Color>MidnightBlue</Color>
+                              <Color>Black</Color>
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </BottomBorder>
@@ -531,7 +571,6 @@
                                   <Style>
                                     <FontStyle>Italic</FontStyle>
                                     <FontWeight>Normal</FontWeight>
-                                    <Color>MidnightBlue</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -546,12 +585,12 @@
                               <Style>None</Style>
                             </Border>
                             <TopBorder>
-                              <Color>MidnightBlue</Color>
+                              <Color>Black</Color>
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </TopBorder>
                             <BottomBorder>
-                              <Color>MidnightBlue</Color>
+                              <Color>Black</Color>
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </BottomBorder>
@@ -578,7 +617,6 @@
                                     <FontStyle>Italic</FontStyle>
                                     <FontWeight>Normal</FontWeight>
                                     <Format>'NPR'#,0.00;('NPR'#,0.00);'-'</Format>
-                                    <Color>MidnightBlue</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -593,17 +631,17 @@
                               <Style>None</Style>
                             </Border>
                             <TopBorder>
-                              <Color>MidnightBlue</Color>
+                              <Color>Black</Color>
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </TopBorder>
                             <BottomBorder>
-                              <Color>MidnightBlue</Color>
+                              <Color>Black</Color>
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </BottomBorder>
                             <RightBorder>
-                              <Color>MidnightBlue</Color>
+                              <Color>Black</Color>
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </RightBorder>
@@ -836,17 +874,17 @@
                                 <Style>None</Style>
                               </Border>
                               <TopBorder>
-                                <Color>MidnightBlue</Color>
+                                <Color>Black</Color>
                                 <Style>Solid</Style>
                                 <Width>1pt</Width>
                               </TopBorder>
                               <BottomBorder>
-                                <Color>MidnightBlue</Color>
+                                <Color>Black</Color>
                                 <Style>Solid</Style>
                                 <Width>1pt</Width>
                               </BottomBorder>
                               <LeftBorder>
-                                <Color>MidnightBlue</Color>
+                                <Color>Black</Color>
                                 <Style>Solid</Style>
                                 <Width>1pt</Width>
                               </LeftBorder>
@@ -940,6 +978,12 @@
       </Page>
     </ReportSection>
   </ReportSections>
+  <ReportParametersLayout>
+    <GridLayoutDefinition>
+      <NumberOfColumns>4</NumberOfColumns>
+      <NumberOfRows>2</NumberOfRows>
+    </GridLayoutDefinition>
+  </ReportParametersLayout>
   <Code>Public Function BlankZero(ByVal Value As Decimal)
     if Value = 0 then
         Return ""
@@ -979,44 +1023,4 @@ End Function
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
   <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
-  <DataSets>
-    <DataSet Name="DataSet_Result">
-      <Fields>
-        <Field Name="StudentNo">
-          <DataField>StudentNo</DataField>
-        </Field>
-        <Field Name="StudentName">
-          <DataField>StudentName</DataField>
-        </Field>
-        <Field Name="TotalFeesPaid">
-          <DataField>TotalFeesPaid</DataField>
-        </Field>
-        <Field Name="TotalFeesPaidFormat">
-          <DataField>TotalFeesPaidFormat</DataField>
-        </Field>
-        <Field Name="CourseCode">
-          <DataField>CourseCode</DataField>
-        </Field>
-        <Field Name="CourseDesc">
-          <DataField>CourseDesc</DataField>
-        </Field>
-        <Field Name="EnrollmentDate">
-          <DataField>EnrollmentDate</DataField>
-        </Field>
-        <Field Name="FeeAmount">
-          <DataField>FeeAmount</DataField>
-        </Field>
-        <Field Name="FeeAmountFormat">
-          <DataField>FeeAmountFormat</DataField>
-        </Field>
-        <Field Name="PostingDate">
-          <DataField>PostingDate</DataField>
-        </Field>
-      </Fields>
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
-    </DataSet>
-  </DataSets>
 </Report>
