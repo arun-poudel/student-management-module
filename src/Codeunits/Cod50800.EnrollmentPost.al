@@ -34,6 +34,7 @@ codeunit 50800 "Enrollment Post"
             PostedEnrollmentEntry."Posting Date" := WorkDate();
             PostedEnrollmentEntry."User ID" := UserId();
             PostedEnrollmentEntry.Insert();
+            OnAfterPostEnrollmentEntry(PostedEnrollmentEntry);
             LinesPosted += 1;
 
         until EnrollmentJournalLine.Next() = 0;
@@ -42,6 +43,12 @@ codeunit 50800 "Enrollment Post"
 
 
 
+
+    end;
+
+    [IntegrationEvent(false, false)]
+    local procedure OnAfterPostEnrollmentEntry(Var PostedEntry: Record "Posted Enrollment Entry")
+    begin
 
     end;
 }

@@ -75,6 +75,12 @@ table 50801 "Student"
             Editable = false;
             AutoFormatType = 1;
         }
+        field(11; "Last Enrollment Date"; Date)
+        {
+            Caption = 'Last Enrollment Date';
+            DataClassification = CustomerContent;
+            Editable = false;
+        }
     }
 
 
